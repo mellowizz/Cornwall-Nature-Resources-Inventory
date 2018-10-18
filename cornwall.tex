@@ -1,0 +1,184 @@
+\documentclass[11pt]{article}
+\usepackage{graphicx, amssymb, amstext, amsmath, booktabs, verbatim,
+gensymb, appendix, lmodern}
+\usepackage{pdfpages}
+\usepackage[acronym, toc]{glossaries}
+\usepackage[nottoc]{tocbibind}
+\usepackage{wrapfig}
+\usepackage[english]{babel}
+\usepackage{csquotes}
+\usepackage{textcomp}
+\usepackage{hyperref}
+\usepackage[bottom]{footmisc}
+\usepackage[plain]{fancyref}
+\usepackage{siunitx}
+%\usepackage{layout}
+
+\hypersetup{
+    colorlinks,
+    linkcolor={nriBlue},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+}
+\usepackage[
+            hyperref=true,
+            backend=biber,
+            citestyle=authoryear,
+            natbib=true,
+            maxcitenames=3]{biblatex}
+\addbibresource{bibliography.bib}
+%\bibliography{bibliography}
+%showframe
+\usepackage[headheight=14pt]{geometry}
+\geometry{letterpaper}
+\makeglossaries
+%%%% new comands %%%%
+\newcommand*\Title{Cornwall Natural Resources Inventory}
+\newcommand*\cpiType{Protecting Our Habitat}
+\newcommand*\Date{December 2018}%\date}
+
+\newcommand*{\fancyrefmaplabelprefix}{map}
+\newcommand*{\Frefmapname}{Map}
+
+\makeatletter
+\def\namedlabel#1#2{\begingroup
+   \def\@currentlabel{#2}%
+   \label{#1}\endgroup
+}
+\makeatother
+
+\title{Cornwall Natural Resources Inventory}
+\author{Cornwall Conservation Advisory Council}
+\date{December 2018} %\today}
+%-----------------------------------------------------------
+
+\usepackage{nristuff/nri} % 
+
+\loadglsentries[main]{glossary}
+\showboxdepth=5
+\showboxbreadth=5
+\begin{document}
+
+\begin{titlepage}
+\maketitle
+\end{titlepage}
+
+\linespread{1.15} %Set standard document linespacing
+
+%***************Acknowledgements*****************
+\section{Acknowledgements \& Contributors}\label{sec:acknowledgements}
+\input{cornwall_tex/acknowledgements}
+
+\pagebreak
+
+\tableofcontents
+
+%*************** List of Maps *******************
+\pagebreak
+\section{List of Maps}\label{sec:listofmaps}
+\input{cornwall_tex/listofmaps}
+
+\pagebreak
+
+%*************** Executive Summary ***************
+\input{cornwall_tex/executive}\label{sec:executivesummary}
+
+%************** Introduction *********************
+\section{Introduction}\label{sec:intro}
+\input{cornwall_tex/intro}
+
+\pagebreak
+%***************Basemap**************************
+\section{Basemap and Aerial Imagery}\label{sec:basemap}
+\input{cornwall_tex/basemap}
+
+%*****Historic and Cultural Resources************
+\section{Historic and Cultural Resources}\label{sec:historic}
+\input{cornwall_tex/historic}
+
+%***************Habitats & Wildlife**************
+\section{Habitats and Wildlife}\label{sec:habitats}
+\input{cornwall_tex/habitats}
+
+%***************Water Resources******************
+\section{Water Resources}\label{sec:water}
+\input{cornwall_tex/water}
+
+%***************Geology & Soils******************
+\section{Geology and Soils}\label{sec:geology}
+\input{cornwall_tex/geology}
+
+%***************Climate Change******************
+\section{Climate Conditions and Projections}\label{sec:climate}
+\input{cornwall_tex/climate}
+
+%*******Proposed Fossil Fuel Infrastructure*****
+\section{Proposed Fossil Fuel Infrastructure}\label{sec:fossil}
+\input{cornwall_tex/fossil}
+
+%*********************LULC**********************
+\section{Land Use}\label{sec:landuse}
+\input{cornwall_tex/landuse}
+
+%\subsection{Figures}
+%There will be some figures here maybe.
+
+%**************References**********************
+\section{References \& Resources}\label{sec:references}
+\printbibliography
+
+%Appendix%%%%%%%%%%%%%%%%%%%%%%%%%
+\appendix
+\section*{Appendices}\label{sec:appendices}
+\addcontentsline{toc}{section}{Appendices}
+\renewcommand{\thesubsection}{\Alph{subsection}}
+
+%Glossary%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Glossary and Acronyms}\label{subsec:glossary}
+\glsaddall
+\renewcommand{\glossarysection}[2][]{}
+\printglossary
+
+\addtocounter{subsection}{1}
+\addcontentsline{toc}{subsection}{\Alph{subsection} \hspace{4mm} Known Species
+of Conservation Concern in the Town of Cornwall and Village of 
+Cornwall-on-Hudson, NY}
+\includepdf[pages=-]{appendix/cornwall_B.pdf}
+\namedlabel{app:cornwall_species}{Known Species of Conservation Concern in the Town of Cornwall and Village of Cornwall-on-Hudson, NY}
+
+\addtocounter{subsection}{1}
+\addcontentsline{toc}{subsection}{\Alph{subsection} \hspace{4mm} Summary of 
+Municipal Wetland and Watercourse Protection Techniques}
+\includepdf[pages=-]{appendix/cornwall_C.pdf}\label{app:wetland_protection}
+
+\subsection{National Wetland Inventory Wetland Classes}
+\input{appendix/cornwall_D}\label{app:cornwall_wetlands}
+
+\subsection{Additional Information on Climate Conditions and Projections}
+\includepdf[pages=-]{appendix/cornwall_E.pdf}\label{app:climate_projection}
+
+\subsection{Natural Resources within Zoning Districts and Overlays for the Town 
+of Cornwall and the Village of Cornwall-on-Hudson}
+\input{appendix/cornwall_F}\label{app:zoning}
+
+\addtocounter{subsection}{1}
+\addcontentsline{toc}{subsection}{\Alph{subsection} \hspace{4mm}
+Orange County Municipality Resiliency Code Audit}
+\includepdf[pages=-]{appendix/cornwall_G.pdf}\label{app:oc_resiliency}
+
+\addtocounter{subsection}{1}
+\addcontentsline{toc}{subsection}{\Alph{subsection} \hspace{4mm}
+Water Quality \& Quantity Protection from Pace Law School Land Use Law Center}
+\includepdf[pages=-]{appendix/cornwall_H.pdf}\label{app:water_quality}
+
+
+\addtocounter{subsection}{1}
+\addcontentsline{toc}{subsection}{\Alph{subsection} \hspace{4mm} Preservation 
+of Natural Features from Pace Law School Land Use Law Center}
+\includepdf[pages=-]{appendix/cornwall_I.pdf}\label{app:pres_natfeatures}
+
+\addtocounter{subsection}{1}
+\addcontentsline{toc}{subsection}{\Alph{subsection} \hspace{4mm} Compact 
+Development \& Infill from Pace Law School Land Use Law Center}
+\includepdf[pages=-]{appendix/cornwall_J.pdf}\label{app:compact_development}
+\end{document}

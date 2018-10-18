@@ -1,0 +1,132 @@
+% all bg_text needs to go after \begin{document}
+\documentclass[11pt]{article} %book
+% amsbg_text,
+\usepackage{graphicx,amssymb, amsmath, epstopdf, booktabs, verbatim, gensymb, geometry, appendix, lmodern}
+\geometry{letterpaper}
+%\usepackage{garamond}
+\usepackage{pdfpages}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[authoryear]{natbib}
+\usepackage{rotating}
+\usepackage{stfloats}
+\usepackage{tabulary}
+\usepackage{graphicx}
+\usepackage[none]{hyphenat}
+\usepackage[hyphens]{url}
+\usepackage{xcolor}
+\usepackage{csquotes}
+\usepackage{wrapfig}
+%toc
+\usepackage[xindy]{glossaries}
+%\usepackage[MnSymbol]{mathspec}
+%\setallmainfonts{Times New Roman}
+%% Fonts 
+%\usepackage{mathptmx}
+\newcommand*\Title{Blooming Grove Nature Resources Inventory}
+\newcommand*\cpiType{The resources around us}
+\newcommand*\Date{\date}
+\usepackage[official]{eurosym}
+\newcommand*\Author{Carla Castillo, Simon Gruber, Bill Schuster, Niklas Moran}
+\title{NRI Report}
+\author{Carla Castillo, Ted Warren, Shanna Abeles, Chris Ruppert, Niklas Moran, Anne Gaylor, Johanna Kiernan}
+\date{\today}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+}
+\usepackage{nristuff/nri}
+
+\loadglsentries[main]{./glossary}
+\makeglossaries
+
+\begin{document}
+\begin{titlepage}
+\maketitle
+\end{titlepage}
+
+\linespread{1.15} %Set standard document linespacing
+%%%% bg_text goes after this %%%%
+
+%***************Acknowledgements*****************
+\section{Acknowledgements \& Contributors}
+\input{bg_tex/acknowledgements}
+
+%***************Executive Summary****************
+\input{bg_tex/executive}
+
+\tableofcontents
+
+%***************Introduction*********************
+\section{Introduction}
+\label{sec:intro}
+\input{bg_tex/intro}
+
+
+%***************Basemap**************************
+\section{Basemap and Aerial Imagery}
+\label{sec:Basemap}
+\input{bg_tex/basemap}
+
+%***************Cultural Resources**************
+\section{Historic and Cultural Resources}
+\label{sec:Historic}
+\input{bg_tex/historic}
+
+%***************Habitats & Wildlife**************
+\section{Habitats and Wildlife}
+\label{sec:Habitats}
+\input{bg_tex/habitats}
+
+%***************Water Resources******************
+\section{Water Resources}
+\label{sec:Water Resources}
+\input{bg_tex/water}
+
+%***************Geology & Soils******************
+\section{Geology and Soils}
+\label{sec:Geology}
+\input{bg_tex/geology}
+
+%***************Cultural Resources***************
+\section{Climate Conditions and Projections}
+\label{sec:Climate}
+\input{bg_tex/climate}
+
+%*******Proposed Fossil Fuel Infrastructure*****
+\section{Proposed Fossil Fuel Infrastructure}
+\label{sec:fossil}
+\input{cornwall_tex/fossil}
+
+%********************Land Use******************
+\section{Land Use}
+\label{sec:Landuse}
+\input{bg_tex/landuse}
+
+%\subsection{Figures}
+%There will be some figures here maybe.
+
+%References%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliographystyle{plainnat}
+\section{References}
+\begingroup
+\renewcommand{\section}[2]{}%
+%\renewcommand{\chapter}[2]{}% for other classes
+\bibliography{bibliography}
+\endgroup
+
+%Appendix%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Appendix}
+\label{sec:Appendix}
+
+%Glossary%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\printglossary[type=\acronymtype]
+\section{Glossary and Acronyms}
+\glsaddall
+\renewcommand{\glossarysection}[2][]{}
+\printglossary
+
+\end{document}
